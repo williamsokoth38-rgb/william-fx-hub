@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>William FX Trading Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="bg-image"></div>
+<canvas id="plasma-canvas"></canvas>
+
+<nav>
+ <div class="nav-logo"><span>WFX</span><b>William FX</b></div>
+ <div class="nav-links">
+  <a href="#" class="active">Home</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+ </div>
+</nav>
+
+<!-- ONLY ONE BOX -->
+<div class="hero">
+ <div class="main-glass">
+  <div class="glass-shine"></div>
+  <h2>Trade<br><span>Smarter</span></h2>
+  <h3>Professional Forex analysis, daily signals and community insights of market dynamics — all in one hub built for Traders who want an edge.</h3>
+  <button class="glass-btn" id="openSignup">Get Started</button>
+ </div>
+</div>
+
+<!-- SIGN UP PAGE / MODAL -->
+<div class="modal" id="signupModal">
+ <div class="modal-glass">
+  <span class="close" id="closeSignup">&times;</span>
+  <div class="modal-aura"></div>
+  <h2>Create Account</h2>
+  <p>Join William FX Trading Hub</p>
+  <form id="signupForm">
+   <div class="input-group">
+    <input type="text" required>
+    <label>Full Name</label>
+   </div>
+   <div class="input-group">
+    <input type="email" required>
+    <label>Email Address</label>
+   </div>
+   <div class="input-group">
+    <input type="password" required>
+    <label>Password</label>
+   </div>
+   <button type="submit" class="submit-btn">Sign Up</button>
+  </form>
+  <div class="form-footer">Already have account? <span>Log in</span></div>
+ </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

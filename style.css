@@ -1,0 +1,141 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,-apple-system,sans-serif}
+body{background:#000;color:white;min-height:100vh;overflow:hidden;position:relative}
+
+/* YOUR BACKGROUND - IMG_2905.JPG */
+#bg-image{
+ position:fixed;inset:0;z-index:0;
+ background:url('IMG_2905.JPG') center/cover no-repeat;
+ background-color:#000;
+}
+#plasma-canvas{
+ position:fixed;inset:0;z-index:1;
+ opacity:0.5;pointer-events:none;
+}
+
+/* NAV */
+nav{
+ position:relative;z-index:20;
+ display:flex;justify-content:space-between;align-items:center;
+ padding:14px 5%;
+ background:rgba(255,255,255,0.03);
+ backdrop-filter:blur(20px);
+ border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo span{
+ width:36px;height:36px;border-radius:50%;
+ background:linear-gradient(135deg,#fff,#aaa);
+ color:black;display:flex;align-items:center;justify-content:center;
+ font-weight:900;font-size:12px;letter-spacing:1px;
+}
+.nav-logo b{font-weight:800;font-size:15px}
+.nav-links{display:flex;gap:20px}
+.nav-links a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:12px;font-weight:600;transition:0.2s}
+.nav-links a:hover,.nav-links a.active{color:white}
+
+/* HERO - ONE BOX ONLY */
+.hero{
+ position:relative;z-index:5;
+ height:calc(100vh - 58px);
+ display:flex;align-items:center;justify-content:center;
+ padding:20px;
+}
+.main-glass{
+ position:relative;
+ width:100%;max-width:520px;
+ background:linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04));
+ backdrop-filter:blur(32px) saturate(180%);
+ -webkit-backdrop-filter:blur(32px) saturate(180%);
+ border:1px solid rgba(255,255,255,0.14);
+ border-radius:28px;
+ padding:45px 35px;
+ text-align:center;
+ box-shadow:0 20px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.2);
+ overflow:hidden;
+ animation:float 6s infinite ease-in-out;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.glass-shine{
+ position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+ background:conic-gradient(from 0deg,transparent 0%,rgba(255,255,255,0.08) 25%,transparent 50%);
+ animation:rotate 10s linear infinite;pointer-events:none
+}
+@keyframes rotate{to{transform:rotate(360deg)}}
+
+.main-glass h2{font-size:clamp(36px, 9vw, 58px);font-weight:900;line-height:0.9;letter-spacing:-2px;position:relative;z-index:2}
+.main-glass h2 span{background:linear-gradient(90deg,#fff,#c4c4c4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.main-glass h3{font-size:clamp(13px, 2.5vw, 14.5px);color:rgba(255,255,255,0.6);line-height:1.6;margin:18px auto 26px;max-width:380px;font-weight:400;position:relative;z-index:2}
+.glass-btn{
+ position:relative;z-index:2;
+ background:white;color:black;
+ padding:13px 32px;border-radius:100px;
+ font-weight:800;font-size:14px;border:none;cursor:pointer;
+ transition:0.25s;box-shadow:0 10px 30px rgba(255,255,255,0.15)
+}
+.glass-btn:hover{transform:scale(1.05)}
+
+/* MODAL - SIGN UP */
+.modal{
+ position:fixed;inset:0;z-index:100;
+ background:rgba(0,0,0,0.55);
+ backdrop-filter:blur(12px);
+ display:none;align-items:center;justify-content:center;
+ padding:20px;
+}
+.modal.active{display:flex;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.modal-glass{
+ position:relative;width:100%;max-width:400px;
+ background:linear-gradient(180deg,rgba(255,255,255,0.13),rgba(255,255,255,0.05));
+ backdrop-filter:blur(40px) saturate(180%);
+ border:1px solid rgba(255,255,255,0.16);
+ border-radius:24px;
+ padding:36px 28px;
+ box-shadow:0 25px 80px rgba(0,0,0,0.7);
+ animation:popIn 0.45s cubic-bezier(0.175,0.885,0.32,1.27);
+}
+@keyframes popIn{from{transform:scale(0.88) translateY(15px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+
+.modal-aura{
+ position:absolute;top:-50px;left:50%;transform:translateX(-50%);
+ width:180px;height:180px;
+ background:radial-gradient(circle,rgba(255,255,255,0.25),transparent 70%);
+ filter:blur(20px);pointer-events:none
+}
+.close{position:absolute;top:16px;right:20px;font-size:24px;cursor:pointer;color:rgba(255,255,255,0.5)}
+.modal-glass h2{font-size:26px;font-weight:800;margin-bottom:4px}
+.modal-glass p{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:26px}
+
+.input-group{position:relative;margin-bottom:22px}
+.input-group input{
+ width:100%;background:rgba(255,255,255,0.06);
+ border:1px solid rgba(255,255,255,0.12);border-radius:12px;
+ padding:15px 14px;color:white;font-size:14px;outline:none;transition:0.3s
+}
+.input-group input:focus{border-color:white;background:rgba(255,255,255,0.09);box-shadow:0 0 0 3px rgba(255,255,255,0.1)}
+.input-group label{
+ position:absolute;left:14px;top:15px;color:rgba(255,255,255,0.4);
+ font-size:14px;pointer-events:none;transition:0.25s
+}
+.input-group input:focus + label,
+.input-group input:valid + label{
+ transform:translateY(-24px) scale(0.85);color:white;background:#141414;padding:0 6px
+}
+.submit-btn{
+ width:100%;background:white;color:black;
+ padding:14px;border-radius:12px;border:none;
+ font-weight:800;font-size:14px;cursor:pointer;transition:0.25s;margin-top:6px
+}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,255,255,0.2)}
+.form-footer{margin-top:18px;text-align:center;font-size:12px;color:rgba(255,255,255,0.4)}
+.form-footer span{color:white;font-weight:600;cursor:pointer}
+
+/* MOBILE FIX */
+@media(max-width:600px){
+ nav{padding:12px 16px}
+ .nav-links{gap:12px}
+ .nav-links a{font-size:11px}
+ .main-glass{padding:36px 22px;border-radius:22px}
+ .modal-glass{padding:28px 20px}
+}
